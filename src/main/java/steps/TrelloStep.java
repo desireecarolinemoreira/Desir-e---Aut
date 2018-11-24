@@ -18,6 +18,7 @@ public class TrelloStep {
       loginPage.access();
       loginPage.doLogin("desiree-moreira", "Desiree23");
       Assert.assertEquals("Página Inicial do Trello",
+              loginPage.chekInicialPage());
     }
 
     @E("^acesse o board$")
