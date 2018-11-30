@@ -16,9 +16,11 @@ public class TrelloStep {
         public void queEstejaLogadoNoTrello() {
       loginPage = new LoginPage();
       loginPage.access();
-      loginPage.doLogin("desiree-moreira", "Desiree23");
+
+
+      loginPage.doLogin("desiree953", "Desiree23");
       Assert.assertEquals("Página Inicial do Trello",
-              loginPage.chekInicialPage());
+              loginPage.checkInicialPage());
     }
 
     @E("^acesse o board$")

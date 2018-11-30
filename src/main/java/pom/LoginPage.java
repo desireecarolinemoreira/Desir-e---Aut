@@ -7,15 +7,19 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import util.Hook;
 
+import javax.management.DynamicMBean;
+
+import static util.Tools.waitBy;
+
 public class LoginPage {
     @FindBy(how = How.ID, using = "user")
-    private WebElement userImput;
+    private WebElement userInput;
     @FindBy (how = How.ID, using = "password")
-    private WebElement passwordImput;
+    private WebElement passwordInput;
     @FindBy(how=How.ID, using = "login")
     private WebElement loginButton;
     @FindBy (how = How.XPATH,using =
-            "//a[@aria-label='Página inicial do Trello']" )
+            "//a[@aria-label='Pagina inicial do Trello']" )
     private WebElement initialPage;
 
     public LoginPage(){
@@ -26,19 +30,19 @@ public class LoginPage {
         Hook.getDriver().get("https://trello.com/login") ;
         return this;
         }
-public LoginPage doLogin (String user, String passawor){
-        userImput.sendKeys();
-        passwordImput.sendKeys(passawor);
-        loginButton.click();
+public LoginPage doLogin (String user, String password){
+       waitBy(userInput).sendKeys(user);
+    waitBy(passwordInput).sendKeys(password);
+    waitBy(loginButton).click();
         return this;
 
 }
-public String chekInicialPage(){
-    return initialPage.getAttribute("arial-label");
+    public String checkInicialPage(){
+    return waitBy(initialPage).getAttribute(("aria-lable"));
 }
 
 
 
-        }
+}
 
 
